@@ -1,0 +1,88 @@
+
+store the array in a hash_table as table.insert(key,value);
+for every function :
+    using find function get an iterator to the given element
+    run a while loop till the iterator != table.end()
+    for next value stored in the table check if it greater than the given input
+    if greater store the result in array and break
+    else store -1
+at last print the entire output on a new line
+
+
+function
+
+
+create an array with all initial value as 0 :
+for every given input insert the data in the array as arr[index] = 1:
+    now start from the last index of the array :
+        if first arr[element]=1 found store as c :
+        second element >=1 found store as b:
+        third element >=1 found store as a
+print c,b,a
+
+
+
+initialize three var as a,b,c, smallest
+start taking input for array:
+    if first three given inputs then store the value in var as a,b,c in an increasing order  as c > b > a
+    now for the next input compare it with a
+        IF less than a continue
+        else
+            if less than b
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+struct Node {
+    int data;
+    struct Node* next;
+};
+
+void printNthFromLast(struct Node* head, int n)
+{
+    int len = 0, i; 
+    struct Node* temp = head; 
+
+    // count the number of nodes in Linked List 
+    while (temp != NULL) { 
+        temp = temp->next;
+        len++;
+    }
+
+    if (len < n)
+        return;
+
+    temp = head;
+
+    for (i = 1; i < len - n + 1; i++)
+        temp = temp->next;
+  
+    cout << temp->data;
+
+    return; 
+} 
+  
+void push(struct Node** head_ref, int new_data) 
+{
+    struct Node* new_node = new Node();
+
+
+    new_node->data = new_data;
+
+
+    new_node->next = (*head_ref);
+
+    (*head_ref) = new_node;
+}
+
+int main()
+{
+    struct Node* head = NULL;
+    push(&head, 20);
+    push(&head, 4);
+    push(&head, 15);
+    push(&head, 35);
+    printNthFromLast(head, 4);
+    return 0; 
+}
